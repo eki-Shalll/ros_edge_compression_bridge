@@ -1,0 +1,61 @@
+
+# ROS编译生成的文件
+
+build/
+
+devel/
+
+install/
+
+log/
+
+*.pyc
+
+__pycache__/
+
+*.so
+
+*.o
+
+*.a
+
+cmake-build-debug/
+
+
+
+# 系统文件
+
+.DS_Store
+
+*.swp
+
+*~
+
+*.orig
+
+*.rej
+
+
+
+# 日志文件
+
+*.log
+
+*.bag
+
+
+
+# 备份文件
+
+*.bak
+
+*.backup
+
+
+
+# 临时文件
+
+*.tmp
+
+*.temp
+

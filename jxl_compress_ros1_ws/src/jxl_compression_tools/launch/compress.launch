@@ -1,0 +1,30 @@
+<launch>
+    <!-- 启动左相机的压缩节点 -->
+    <!-- name: 节点的唯一名称 -->
+    <!-- pkg: 包名 -->
+    <!-- type: 脚本文件名 -->
+    <!-- output="screen": 在终端显示节点的日志信息 -->
+    <node name="left_image_compressor" pkg="jxl_compression_tools" type="jxl_compressor_node.py" output="screen">
+        <!-- 这是一个重映射 -->
+        <!-- from="原始话题名(代码里写的)" to="目标话题名(rosbag里的)" -->
+        <remap from="/camera/image_raw" to="/left_camera/image"/>
+
+        <!-- 为了不让压缩后的话题名混淆，也给输出话题做个重映射 -->
+        <remap from="/camera/image/jxl_compressed" to="/left_camera/image/jxl_compressed"/>
+    </node>
+
+    <!-- 启动右相机的压缩节点 -->
+    <!-- 注意：节点的 name 必须是唯一的，所以我们叫它 right_image_compressor -->
+    <node name="right_image_compressor" pkg="jxl_compression_tools" type="jxl_compressor_node.py" output="screen">
+        <remap from="/camera/image_raw" to="/right_camera/image"/>
+        <remap from="/camera/image/jxl_compressed" to="/right_camera/image/jxl_compressed"/>
+    </node>
+    
+    <node name="left_image_minimal_subscriber" 
+          pkg="jxl_compression_tools" 
+          type="minimal_subscriber.py"  
+          output="screen">
+        <!-- 重映射还是一样 -->
+        <remap from="/camera/image_raw" to="/left_camera/image"/>
+    </node>
+</launch>

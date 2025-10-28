@@ -1,0 +1,9 @@
+{
+    "names": {
+        "ament_cmake": {
+            "cmake-args": [
+                "-DBUILD_TESTING=OFF"
+            ]
+        }
+    }
+}

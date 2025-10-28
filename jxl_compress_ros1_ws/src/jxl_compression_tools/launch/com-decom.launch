@@ -1,0 +1,27 @@
+<launch>
+
+    <!-- 
+        启动双目压缩节点。
+        name: 给这个节点起一个唯一的名字，比如 "compressor"。
+        pkg: 你的包名 "jxl_compression_tools"。
+        type: 你的脚本文件名 "jxl_compressor_node.py"。
+        output="screen": 必须有！这样节点的打印信息才能显示在终端上。
+    -->
+    <node name="compressor" 
+          pkg="jxl_compression_tools" 
+          type="jxl_compressor_node.py" 
+          output="screen" />
+
+    <!-- 
+        启动双目解压缩/转码节点。
+        name: 必须是唯一的，我们叫它 "decompressor"。
+        pkg: 你的包名。
+        type: 你的解压缩脚本文件名 "jxl_decompressor_node.py"。
+        output="screen": 同样必须有！
+    -->
+    <node name="decompressor" 
+          pkg="jxl_compression_tools" 
+          type="jxl_decompressor_node.py" 
+          output="screen" />
+
+</launch>

@@ -1,0 +1,11 @@
+[submodule "bridge_ws/src/ros1_bridge"]
+	path = bridge_ws/src/ros1_bridge
+	url = https://github.com/ros2/ros1_bridge.git
+	branch = master
+[submodule "pointcloud_tools_ros2_ws/src/ros2_pointcloud_compression"]
+	path = pointcloud_tools_ros2_ws/src/ros2_pointcloud_compression
+	url = https://github.com/ros-perception/point_cloud_transport.git
+	branch = ros2
+[submodule "draco"]
+	path = draco
+	url = https://github.com/google/draco.git

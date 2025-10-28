@@ -1,0 +1,19 @@
+<launch>
+    <!-- 
+        启动能同时处理双目的压缩节点。
+        只需要一个节点实例。
+        这个节点内部订阅 /left_camera/image 和 /right_camera/image，
+        并发布 /left_camera/image/jxl_compressed 和 /right_camera/image/jxl_compressed。
+        不需要任何重映射，因为节点代码里已经硬编码了话题名。
+    -->
+    <node name="jxl_compressor_stereo" 
+          pkg="jxl_compression_tools" 
+          type="jxl_compressor_node.py" 
+          output="screen" />
+
+    <!-- 
+        其他节点（如解压缩节点或额外的订阅者）已被移除或注释掉。
+        在为桥接做准备时，ROS1 端只需要负责压缩。
+    -->
+
+</launch>

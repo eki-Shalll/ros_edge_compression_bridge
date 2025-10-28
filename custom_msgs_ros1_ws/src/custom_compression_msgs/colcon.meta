@@ -1,0 +1,9 @@
+{
+    "names": {
+        "catkin": {
+            "cmake-args": [
+                "-DCATKIN_SKIP_TESTING=ON"
+            ]
+        }
+    }
+}
