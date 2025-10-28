@@ -1,4 +1,4 @@
-```markdown
+
 # ros_edge_compression_bridge
 
 A robust ROS-based distributed compression framework designed for efficient edge-cloud robotics applications. This system enables real-time point cloud and image compression on resource-constrained embedded devices with seamless decompression and visualization on high-performance computing nodes.
@@ -26,7 +26,8 @@ A robust ROS-based distributed compression framework designed for efficient edge
 
 ## Motivation
 
-In many robotics and autonomous systems scenarios, data such as point clouds and high-resolution images must be transmitted from resource-limited edge devices (e.g., embedded robots, drones) to more capable ground or cloud nodes for processing and visualization. However, bandwidth, latency, and power constraints make raw data transmission impractical.  
+In many robotics and autonomous systems scenarios, data such as point clouds and high-resolution images must be transmitted from resource-limited edge devices (e.g., embedded robots, drones) to more capable ground or cloud nodes for processing and visualization. However, bandwidth, latency, and power constraints make raw data transmission impractical.
+
 This project addresses this challenge by providing:
 
 - Real-time compression on the edge device  
@@ -48,16 +49,14 @@ This project addresses this challenge by providing:
 
 ## Architecture
 
-```
-
+```text
 [ Edge Device (ROS 1) ] → Compression Module → Transmit → Decompression Module → [ Ground Station (ROS 2) ]
-
 ````
 
-- **Edge Device**: Runs the compression module (e.g., DRACO, JPEG XL) to encode data  
-- **Transmission**: The compressed data is sent over the network  
-- **Ground Station**: Receives compressed data, decompresses it, and feeds into ROS pipelines for further processing/visualization  
-- **Custom ROS Messages** (`custom_compression_msgs`) are used for encoded payloads and control  
+* **Edge Device**: Runs the compression module (e.g., DRACO, JPEG XL) to encode data.
+* **Transmission**: The compressed data is sent over the network.
+* **Ground Station**: Receives compressed data, decompresses it, and feeds it into ROS pipelines for further processing/visualization.
+* **Custom ROS Messages** (`custom_compression_msgs`) are used for encoded payloads and control.
 
 ---
 
@@ -65,17 +64,18 @@ This project addresses this challenge by providing:
 
 ### Prerequisites
 
-- ROS 1 (e.g., Melodic, Noetic) and/or ROS 2 (e.g., Foxy, Humble)  
-- CMake, Python, and build tools  
-- Required compression libraries (e.g., DRACO, JPEG XL)
+* ROS 1 (e.g., Melodic, Noetic) and/or ROS 2 (e.g., Foxy, Humble)
+* CMake, Python, and build tools
+* Required compression libraries (e.g., DRACO, JPEG XL)
 
 ### Installation
 
 1. Clone the repository:
+
    ```bash
    git clone https://github.com/eki-Shalll/ros_edge_compression_bridge.git
    cd ros_edge_compression_bridge
-````
+   ```
 
 2. Initialize submodules (if applicable):
 
@@ -114,15 +114,13 @@ This project addresses this challenge by providing:
    ```bash
    ./launch_compress-ros.sh
    ```
-2. Ensure your sensor publisher (e.g., point cloud, camera image) is active.
-   The compression node will subscribe and publish compressed messages.
+2. Ensure your sensor publisher (e.g., point cloud, camera image) is active. The compression node will subscribe and publish compressed messages.
 
 ### Ground Station (Cloud/High-Perf) Setup
 
 1. Launch the decompression/visualization node (ROS 2):
 
    ```bash
-   ./launch_onboard.sh
    ./launch_ground_station.sh
    ```
 2. The decompressed data will be available in ROS 2 topics for further processing or display.
@@ -146,9 +144,9 @@ This project addresses this challenge by providing:
 
 You can extend the compression framework by adding your own encoding/decoding module:
 
-1. Add the algorithm under a new workspace (e.g., `my_compress_ws`)
-2. Define ROS message types under `custom_msgs_ros1_ws` or `custom_msgs_ros2_ws`
-3. Modify the bridge node to integrate new modules
+1. Add the algorithm under a new workspace (e.g., `my_compress_ws`).
+2. Define ROS message types under `custom_msgs_ros1_ws` or `custom_msgs_ros2_ws`.
+3. Modify the bridge node to integrate new modules.
 
 Parameters such as topics, compression quality, and network endpoints can be configured via ROS parameters or launch files.
 
@@ -158,7 +156,7 @@ Parameters such as topics, compression quality, and network endpoints can be con
 
 Contributions are welcome! Please follow these steps:
 
-1. Fork the repository
+1. Fork the repository.
 2. Create a new feature branch:
 
    ```bash
@@ -174,7 +172,7 @@ Contributions are welcome! Please follow these steps:
    ```bash
    git push origin feature/my-new-module
    ```
-5. Open a Pull Request and describe your enhancement or fix
+5. Open a Pull Request and describe your enhancement or fix.
 
 Please ensure your code follows consistent style and includes documentation or test cases when appropriate.
 
@@ -188,7 +186,3 @@ See the [LICENSE](LICENSE) file for more details.
 ---
 
 **Happy compressing! 🚀**
-
-```
-
----
