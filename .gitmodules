@@ -4,7 +4,7 @@
 	branch = master
 [submodule "pointcloud_tools_ros2_ws/src/ros2_pointcloud_compression"]
 	path = pointcloud_tools_ros2_ws/src/ros2_pointcloud_compression
-	url = https://github.com/ros-perception/point_cloud_transport.git
+	url = https://github.com/eki-Shalll/ros2_pointcloud_compression.git
 	branch = ros2
 [submodule "draco"]
 	path = draco
